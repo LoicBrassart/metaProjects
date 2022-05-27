@@ -1,13 +1,21 @@
 import propTypes from "prop-types";
+import SWebsiteCard from "./style";
 
 export default function WebsiteCard({ link, title, thumbSrc }) {
   return (
-    <article>
-      <a href={link}>
-        <h3>{title}</h3>
-      </a>
-      <img src={thumbSrc} alt="" />
-    </article>
+    <SWebsiteCard>
+      <figure>
+        <picture>
+          <img src={thumbSrc} alt="" />
+        </picture>
+        <figcaption>{title}</figcaption>
+      </figure>
+      <div>
+        <a href={link}>
+          <h3>{title}</h3>
+        </a>
+      </div>
+    </SWebsiteCard>
   );
 }
 WebsiteCard.propTypes = {
