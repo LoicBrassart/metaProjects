@@ -1,8 +1,10 @@
 const express = require("express");
 
-const { ItemController } = require("./controllers");
+const { ItemController, ProjectController } = require("./controllers");
 
 const router = express.Router();
+
+router.get("/projects", ProjectController.browse);
 
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
