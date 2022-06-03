@@ -5,6 +5,7 @@ const { ItemController, ProjectController } = require("./controllers");
 const router = express.Router();
 
 router.get("/projects", ProjectController.browse);
+router.post("/projects", ProjectController.add);
 
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
