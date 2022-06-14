@@ -1,4 +1,5 @@
 const express = require("express");
+const passport = require("passport");
 
 const {
   ItemController,
@@ -13,6 +14,16 @@ router.get("/projects", ProjectController.browse);
 router.post("/projects", ProjectController.add);
 
 router.post("/auth/signup", AuthController.signup);
+router.post(
+  "/auth/login",
+  passport.authenticate("local"),
+  AuthController.login
+);
+router.get(
+  "/secure/ponies",
+  passport.authenticate("jwt"),
+  AuthController.ponies
+);
 
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);

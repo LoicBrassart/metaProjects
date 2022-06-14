@@ -10,6 +10,13 @@ class UserManager extends AbstractManager {
     );
   }
 
+  findOneByMail(mail) {
+    return this.connection.query(
+      `select * from ${UserManager.table} where email=?`,
+      [mail]
+    );
+  }
+
   // update(item) {
   //   return this.connection.query(
   //     `update ${ProjectManager.table} set title = ? where id = ?`,

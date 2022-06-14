@@ -8,7 +8,10 @@ class AuthController {
 
     // TODO validations (length, format...)
 
-    user.password = bcrypt.hashSync(user.password, process.env.CRYPT_ROUNDS);
+    user.password = bcrypt.hashSync(
+      user.password,
+      parseInt(process.env.CRYPT_ROUNDS, 10)
+    );
 
     models.user
       .insert(user)
@@ -22,6 +25,16 @@ class AuthController {
         console.error(err);
         res.sendStatus(500);
       });
+  };
+
+  static login = (req, res) => {
+    // TODO validations (length, format...)
+
+    return res.sendStatus(418);
+  };
+
+  static ponies = (req, res) => {
+    return res.send("Yay <3");
   };
 }
 
