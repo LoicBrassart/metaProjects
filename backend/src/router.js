@@ -21,7 +21,7 @@ router.post(
 );
 router.get(
   "/secure/ponies",
-  passport.authenticate("jwt"),
+  passport.authenticate("jwt", { session: false }),
   AuthController.ponies
 );
 
