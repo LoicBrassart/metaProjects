@@ -16,12 +16,12 @@ router.post("/projects", ProjectController.add);
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
-  passport.authenticate("local"),
+  passport.authenticate("local", { session: false }),
   AuthController.login
 );
 router.get(
   "/secure/ponies",
-  passport.authenticate("jwt"),
+  passport.authenticate("jwt", { session: false }),
   AuthController.ponies
 );
 
