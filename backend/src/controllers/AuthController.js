@@ -28,9 +28,10 @@ class AuthController {
   };
 
   static login = (req, res) => {
-    // TODO validations (length, format...)
-
-    return res.sendStatus(418);
+    // When we're ariving here, we're *already* logged in through Passport's Local Strategy
+    // -> Every intel about our user is located in "req.user". We extract, tokenize and send it back to our frontend
+    const token = jwt.sign(req.user, process.env.JWT_SECRET);
+    res.status(200).json({ user: req.user, token });
   };
 
   static ponies = (req, res) => {
