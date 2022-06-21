@@ -6,18 +6,16 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "echo '----- Checking Frontend...' && prettier --debug-check . && eslint --ext .jsx . && echo '----- Done!'",
+    "lint": "echo '----- Checking Admin...' && prettier --debug-check . && eslint --ext .jsx . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
     "axios": "^0.27.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
+    "react-admin": "^4.1.5",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-toastify": "^9.0.3",
-    "styled-components": "^5.3.5",
-    "styled-reset": "^4.4.1"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
