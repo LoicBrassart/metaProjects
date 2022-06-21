@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import api from "@services/api";
 
 export default function Admin() {
   const [formData, setFormData] = useState({
@@ -11,8 +11,8 @@ export default function Admin() {
 
   const hSubmit = (evt) => {
     evt.preventDefault();
-    axios
-      .post("http://localhost:5000/projects", formData)
+    api
+      .post("/projects", formData)
       .then(() => {
         toast("Wow so easy!");
       })

@@ -1,12 +1,12 @@
-import WebsiteCard from "@components/WebsiteCard";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import WebsiteCard from "@components/WebsiteCard";
+import api from "@services/api";
 
 export default function Home() {
   const [websites, setWebsites] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/projects").then(({ data }) => {
+    api.get("/projects").then(({ data }) => {
       setWebsites(data);
     });
   }, []);
