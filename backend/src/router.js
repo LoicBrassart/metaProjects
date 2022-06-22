@@ -5,6 +5,7 @@ const {
   ItemController,
   ProjectController,
   AuthController,
+  UserController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -26,6 +27,8 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   AuthController.ponies
 );
+
+router.get("/users", UserController.browse);
 
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
