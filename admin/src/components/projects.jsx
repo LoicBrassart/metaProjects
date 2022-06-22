@@ -7,7 +7,6 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  ImageInput,
 } from "react-admin";
 
 export function ProjectList() {
@@ -31,7 +30,7 @@ export function ProjectEdit() {
         <TextInput disabled source="id" />
         <TextInput source="link" />
         <TextInput source="title" />
-        <ImageInput source="thumbSrc" />
+        <TextInput source="thumbSrc" />
         <TextInput source="crew" />
       </SimpleForm>
     </Edit>

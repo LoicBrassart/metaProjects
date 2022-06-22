@@ -3,10 +3,6 @@ const AbstractManager = require("./AbstractManager");
 class ProjectManager extends AbstractManager {
   static table = "project";
 
-  findAll() {
-    return this.connection.query(`select * from  ${ProjectManager.table}`);
-  }
-
   insert(project) {
     return this.connection.query(
       `insert into ${ProjectManager.table} (link, title, thumbSrc, crew) values (?,?,?,?)`,
@@ -14,12 +10,12 @@ class ProjectManager extends AbstractManager {
     );
   }
 
-  // update(item) {
-  //   return this.connection.query(
-  //     `update ${ProjectManager.table} set title = ? where id = ?`,
-  //     [item.title, item.id]
-  //   );
-  // }
+  update(project) {
+    return this.connection.query(
+      `update ${ProjectManager.table} set link=?, title = ?,thumbSrc=?, crew=? where id = ?`,
+      [project.link, project.title, project.thumbSrc, project.crew, project.id]
+    );
+  }
 }
 
 module.exports = ProjectManager;
