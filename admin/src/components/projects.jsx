@@ -1,6 +1,16 @@
-import { Datagrid, List, TextField, UrlField, ImageField } from "react-admin";
+import {
+  Datagrid,
+  List,
+  TextField,
+  UrlField,
+  ImageField,
+  Edit,
+  SimpleForm,
+  TextInput,
+  ImageInput,
+} from "react-admin";
 
-export default function ProjectList() {
+export function ProjectList() {
   return (
     <List>
       <Datagrid rowClick="edit">
@@ -11,5 +21,19 @@ export default function ProjectList() {
         <TextField source="crew" />
       </Datagrid>
     </List>
+  );
+}
+
+export function ProjectEdit() {
+  return (
+    <Edit>
+      <SimpleForm>
+        <TextInput disabled source="id" />
+        <TextInput source="link" />
+        <TextInput source="title" />
+        <ImageInput source="thumbSrc" />
+        <TextInput source="crew" />
+      </SimpleForm>
+    </Edit>
   );
 }

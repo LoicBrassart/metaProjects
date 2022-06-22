@@ -10,6 +10,7 @@ const {
 const router = express.Router();
 
 router.get("/projects", ProjectController.browse);
+router.get("/projects/:id", ProjectController.read);
 
 router.post("/projects", ProjectController.add);
 
