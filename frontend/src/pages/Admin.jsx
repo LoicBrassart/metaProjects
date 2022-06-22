@@ -4,9 +4,10 @@ import api from "@services/api";
 
 export default function Admin() {
   const [formData, setFormData] = useState({
-    url: "",
-    img: "",
+    link: "",
+    thumbSrc: "",
     title: "",
+    crew: "",
   });
 
   const hSubmit = (evt) => {
@@ -30,8 +31,8 @@ export default function Admin() {
       <input
         type="url"
         placeholder="Url for your image"
-        value={formData.img}
-        name="img"
+        value={formData.thumbUrl}
+        name="thumbSrc"
         onChange={hChange}
       />
       <input
@@ -44,8 +45,15 @@ export default function Admin() {
       <input
         type="url"
         placeholder="Url for your website"
-        value={formData.url}
-        name="url"
+        value={formData.link}
+        name="link"
+        onChange={hChange}
+      />
+      <input
+        type="text"
+        placeholder="Which crew is it for ?"
+        value={formData.crew}
+        name="crew"
         onChange={hChange}
       />
       <input type="submit" />

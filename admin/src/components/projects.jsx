@@ -4,10 +4,24 @@ import {
   TextField,
   UrlField,
   ImageField,
+  Create,
   Edit,
   SimpleForm,
   TextInput,
 } from "react-admin";
+import { PropTypes } from "prop-types";
+
+function ProjectForm({ showIdField }) {
+  return (
+    <SimpleForm>
+      {showIdField && <TextInput disabled source="id" />}
+      <TextInput source="link" />
+      <TextInput source="title" />
+      <TextInput source="thumbSrc" />
+      <TextInput source="crew" />
+    </SimpleForm>
+  );
+}
 
 export function ProjectList() {
   return (
@@ -26,13 +40,21 @@ export function ProjectList() {
 export function ProjectEdit() {
   return (
     <Edit>
-      <SimpleForm>
-        <TextInput disabled source="id" />
-        <TextInput source="link" />
-        <TextInput source="title" />
-        <TextInput source="thumbSrc" />
-        <TextInput source="crew" />
-      </SimpleForm>
+      <ProjectForm showIdField />
     </Edit>
   );
 }
+export function ProjectCreate() {
+  return (
+    <Create>
+      <ProjectForm />
+    </Create>
+  );
+}
+
+ProjectForm.propTypes = {
+  showIdField: PropTypes.bool,
+};
+ProjectForm.defaultProps = {
+  showIdField: false,
+};
